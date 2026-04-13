@@ -8,9 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
   <style>
-  /* ═══════════════════════════════════════════
-     VARIABLES & RESET
-  ═══════════════════════════════════════════ */
   :root {
     --gold:        #C9A84C;
     --gold-light:  #E8D5A3;
@@ -41,23 +38,14 @@
     overflow-x: hidden;
   }
 
-  /* ═══════════════════════════════════════════
-     ANIMATIONS
-  ═══════════════════════════════════════════ */
   @keyframes fadeUp   { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
   @keyframes fadeDown { from{opacity:0;transform:translateY(-12px)} to{opacity:1;transform:none} }
   @keyframes fadeIn   { from{opacity:0} to{opacity:1} }
   @keyframes pulse    { 0%,100%{opacity:1} 50%{opacity:.6} }
-  @keyframes shimmer  {
-    0%   { background-position: -200% center; }
-    100% { background-position:  200% center; }
-  }
   @keyframes spin { to { transform: rotate(360deg); } }
   @keyframes countUp { from{opacity:0;transform:scale(.7)} to{opacity:1;transform:scale(1)} }
 
-  /* ═══════════════════════════════════════════
-     ── LOGIN SCREEN ──
-  ═══════════════════════════════════════════ */
+  /* LOGIN */
   #loginScreen {
     position: fixed; inset: 0; z-index: 100;
     background: var(--deep);
@@ -173,12 +161,9 @@
     background: linear-gradient(90deg, transparent, var(--gold-dark) 20%, var(--gold) 50%, var(--gold-light) 65%, var(--gold) 80%, transparent);
   }
 
-  /* ═══════════════════════════════════════════
-     ── DASHBOARD ──
-  ═══════════════════════════════════════════ */
+  /* DASHBOARD */
   #dashboard { display: none; min-height: 100vh; }
 
-  /* SIDEBAR */
   .sidebar {
     position: fixed; left: 0; top: 0; bottom: 0;
     width: 240px;
@@ -246,24 +231,21 @@
     background: none; border: none; font-family: 'Jost', sans-serif;
     width: 100%; text-align: left;
   }
-  .logout-btn:hover { color: var(--error, #E07070); background: rgba(224,112,112,.07); }
+  .logout-btn:hover { color: #E07070; background: rgba(224,112,112,.07); }
   .logout-btn svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
 
-  /* MAIN */
   .main {
     margin-left: 240px;
     min-height: 100vh;
     display: flex; flex-direction: column;
   }
 
-  /* TOPBAR */
   .main-topbar {
     height: 3px;
     background: linear-gradient(90deg, transparent, var(--gold-dark) 20%, var(--gold) 50%, var(--gold-light) 65%, var(--gold) 80%, transparent);
     flex-shrink: 0;
   }
 
-  /* TOP HEADER */
   .main-header {
     padding: 28px 36px 20px;
     display: flex; align-items: center; justify-content: space-between;
@@ -305,10 +287,8 @@
   .print-btn:hover { opacity: .9; border-color: transparent; }
   .header-btn-icon { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
-  /* CONTENT */
   .content { padding: 28px 36px 60px; flex: 1; }
 
-  /* FILTER BAR */
   .filter-bar {
     display: flex; align-items: center; gap: 14px;
     flex-wrap: wrap;
@@ -352,7 +332,6 @@
   }
   .record-count span { color: var(--gold); font-weight: 600; }
 
-  /* KPI CARDS */
   .kpi-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -391,15 +370,12 @@
   }
   .kpi-sub { font-size: .76rem; color: var(--muted); margin-top: 4px; }
 
-  /* CHART GRID */
   .chart-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px; margin-bottom: 24px;
   }
-  .chart-grid-3 {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  .chart-grid-3 { grid-template-columns: 1fr 1fr 1fr; }
   .chart-card {
     background: var(--navy);
     border: 1px solid var(--border);
@@ -421,7 +397,6 @@
   .chart-wrap.tall { height: 280px; }
   canvas { border-radius: 3px; }
 
-  /* TABLE */
   .table-card {
     background: var(--navy);
     border: 1px solid var(--border);
@@ -475,7 +450,6 @@
   .badge-muted  { background: rgba(106,127,152,.12); color: var(--muted); border: 1px solid rgba(106,127,152,.25); }
   .badge-red    { background: rgba(201,96,96,.12); color: #C96060; border: 1px solid rgba(201,96,96,.25); }
 
-  /* LOADING SPINNER */
   .spinner {
     width: 32px; height: 32px; border-radius: 50%;
     border: 2px solid rgba(201,168,76,.2);
@@ -494,7 +468,6 @@
   }
   .empty-icon { font-size: 2rem; margin-bottom: 12px; opacity: .4; }
 
-  /* STATUS BAR */
   .status-bar {
     padding: 8px 36px;
     border-top: 1px solid var(--border2);
@@ -509,17 +482,12 @@
     animation: pulse 2s ease infinite;
   }
   .status-dot.loading { background: var(--gold); }
-  .status-dot.error   { background: var(--red);  animation: none; }
+  .status-dot.error   { background: var(--red); animation: none; }
 
-  /* ═══════════════════════════════════════════
-     ── PRINT REPORT ──
-  ═══════════════════════════════════════════ */
   @media print {
     body { background: #fff !important; color: #111 !important; }
     #loginScreen, .sidebar, .main-topbar, .main-header,
-    .filter-bar, .status-bar, .refresh-btn, .print-btn,
-    .table-header .table-sub,
-    #printNotice { display: none !important; }
+    .filter-bar, .status-bar, .refresh-btn, .print-btn { display: none !important; }
     #dashboard { display: block !important; }
     .main { margin-left: 0 !important; }
     .content { padding: 0 !important; }
@@ -598,7 +566,7 @@
 </head>
 <body>
 
-<!-- ══ LOGIN ══ -->
+<!-- LOGIN -->
 <div id="loginScreen">
   <div class="topbar-login"></div>
   <div class="login-box">
@@ -624,10 +592,8 @@
   </div>
 </div>
 
-<!-- ══ DASHBOARD ══ -->
+<!-- DASHBOARD -->
 <div id="dashboard">
-
-  <!-- Sidebar -->
   <nav class="sidebar">
     <div class="sidebar-header">
       <div class="sidebar-logos">
@@ -666,7 +632,6 @@
     </div>
   </nav>
 
-  <!-- Main -->
   <div class="main">
     <div class="main-topbar"></div>
     <div class="main-header">
@@ -686,7 +651,6 @@
       </div>
     </div>
 
-    <!-- Filter bar -->
     <div class="content" style="padding-bottom:0">
       <div class="filter-bar">
         <span class="filter-label">Filtros</span>
@@ -702,7 +666,6 @@
           <option value="Insatisfecho(a)">Insatisfecho(a)</option>
           <option value="Very satisfied">Very satisfied</option>
           <option value="Satisfied">Satisfied</option>
-          <option value="Neutral">Neutral</option>
           <option value="Dissatisfied">Dissatisfied</option>
         </select>
         <select class="filter-select" id="fLang" onchange="applyFilters()">
@@ -715,13 +678,11 @@
       </div>
     </div>
 
-    <!-- Views -->
     <div class="content" id="viewContent">
       <div class="spinner"></div>
       <div class="loading-text">Cargando datos…</div>
     </div>
 
-    <!-- Status bar -->
     <div class="status-bar">
       <span class="status-dot" id="statusDot"></span>
       <span id="statusText">Conectando…</span>
@@ -729,34 +690,28 @@
     </div>
   </div>
 
-  <!-- Print report (hidden until print) -->
   <div class="print-report" id="printReport"></div>
-
 </div>
 
 <script>
-/* ═══════════════════════════════════════════
-   CONFIG
-═══════════════════════════════════════════ */
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxWTXPLsDKRpxbjzwDLsk7JIlQcBJQD97iXemLuwf9vrQz2OWcv69VoBucB-PCFtkw/exec'; // same URL as survey
+/* CONFIG */
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxWTXPLsDKRpxbjzwDLsk7JIlQcBJQD97iXemLuwf9vrQz2OWcv69VoBucB-PCFtkw/exec';
 const ADMIN = { user: 'admin', pass: 'H0l1d4y2026$$' };
 
 let allData = [];
 let filtered = [];
-let charts  = {};
+let charts = {};
 let currentView = 'overview';
 
-/* ═══════════════════════════════════════════
-   AUTH
-═══════════════════════════════════════════ */
+/* AUTH */
 function doLogin() {
-  var u = document.getElementById('loginUser').value.trim();
-  var p = document.getElementById('loginPass').value;
+  var u   = document.getElementById('loginUser').value.trim();
+  var p   = document.getElementById('loginPass').value;
   var err = document.getElementById('loginErr');
   if (u === ADMIN.user && p === ADMIN.pass) {
     err.style.display = 'none';
     document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
+    document.getElementById('dashboard').style.display   = 'block';
     loadData();
   } else {
     err.style.display = 'block';
@@ -764,22 +719,15 @@ function doLogin() {
     document.getElementById('loginPass').focus();
   }
 }
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Enter' && document.getElementById('loginScreen').style.display !== 'none') doLogin();
-});
 function doLogout() {
-  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('dashboard').style.display   = 'none';
   document.getElementById('loginScreen').style.display = 'flex';
   document.getElementById('loginUser').value = '';
   document.getElementById('loginPass').value = '';
   allData = []; filtered = [];
 }
 
-/* ═══════════════════════════════════════════
-   DATA LOADING
-   Reads from Google Sheets via Apps Script
-   GET request returning JSON
-═══════════════════════════════════════════ */
+/* DATA */
 async function loadData() {
   setStatus('loading', 'Cargando datos…');
   try {
@@ -792,7 +740,6 @@ async function loadData() {
     document.getElementById('lastUpdate').textContent =
       'Última actualización: ' + new Date().toLocaleTimeString('es-PE');
   } catch(e) {
-    // DEMO MODE: use sample data when no sheet connected
     allData = generateDemoData();
     populateDateFilter();
     applyFilters();
@@ -803,67 +750,73 @@ async function loadData() {
 }
 
 function generateDemoData() {
-  const names = ['Carlos Mendoza','Ana García','Peter Johnson','Lucia Torres','Marco Rios','Sarah Williams','Diego Vargas','María Lozano','James Brown','Rosa Pérez','Antoine Martin','Valeria Silva','Akira Tanaka','Carmen López','Robert Davis'];
-  const opts4 = ['Excelente','Bueno','Regular','Malo'];
-  const opts4e = ['Excellent','Good','Fair','Poor'];
-  const sat = ['Muy satisfecho(a)','Satisfecho(a)','Neutral','Insatisfecho(a)'];
-  const sate = ['Very satisfied','Satisfied','Neutral','Dissatisfied'];
-  const comments = ['Todo perfecto, excelente servicio.','La comida llegó fría.','Muy rápido y sabroso.','El personal fue muy amable.','','Excellent experience overall.','Food quality was great!','','Service could be faster.','Muy buena atención.','',];
-  const data = [];
-  const now = new Date();
-  for (let i = 0; i < 68; i++) {
-    const d = new Date(now); d.setDate(d.getDate() - Math.floor(Math.random()*30));
-    const isEs = Math.random() > .35;
-    const w = [.55,.3,.1,.05]; // weights toward positive
-    function pick(arr, w) {
-      const r = Math.random();
-      let cum = 0;
-      for (let j=0;j<arr.length;j++) { cum+=w[j]; if(r<cum) return arr[j]; }
-      return arr[arr.length-1];
-    }
+  var names    = ['Carlos Mendoza','Ana García','Peter Johnson','Lucia Torres','Marco Rios','Sarah Williams','Diego Vargas','María Lozano','James Brown','Rosa Pérez','Antoine Martin','Valeria Silva','Akira Tanaka','Carmen López','Robert Davis'];
+  var opts4    = ['Excelente','Bueno','Regular','Malo'];
+  var opts4e   = ['Excellent','Good','Fair','Poor'];
+  var sat      = ['Muy satisfecho(a)','Satisfecho(a)','Neutral','Insatisfecho(a)'];
+  var sate     = ['Very satisfied','Satisfied','Neutral','Dissatisfied'];
+  var comments = ['Todo perfecto, excelente servicio.','La comida llegó fría.','Muy rápido y sabroso.','El personal fue muy amable.','','Excellent experience overall.','Food quality was great!','','Service could be faster.','Muy buena atención.',''];
+  var rooms    = ['101','205','310','412','518','620','703','814','901','1002','1105','1208'];
+  var data     = [];
+  var now      = new Date();
+  var w        = [.55,.3,.1,.05];
+
+  function pick(arr, weights) {
+    var r = Math.random(), cum = 0;
+    for (var j = 0; j < arr.length; j++) { cum += weights[j]; if (r < cum) return arr[j]; }
+    return arr[arr.length - 1];
+  }
+
+  for (var i = 0; i < 68; i++) {
+    var d = new Date(now);
+    d.setDate(d.getDate() - Math.floor(Math.random() * 30));
+    var isEs = Math.random() > .35;
     data.push({
-      timestamp: d.toLocaleString('es-PE'),
-      nombre: names[Math.floor(Math.random()*names.length)],
-      idioma: isEs ? 'Español' : 'English',
-      puntualidad:  pick(isEs?opts4:opts4e, w),
-      presentacion: pick(isEs?opts4:opts4e, w),
-      calidad:      pick(isEs?opts4:opts4e, w),
-      atencion:     pick(isEs?opts4:opts4e, w),
-      satisfaccion: pick(isEs?sat:sate, w),
-      comentario:   comments[Math.floor(Math.random()*comments.length)] || '—',
+      timestamp:    d.toLocaleString('es-PE'),
+      nombre:       names[Math.floor(Math.random() * names.length)],
+      habitacion:   rooms[Math.floor(Math.random() * rooms.length)],
+      idioma:       isEs ? 'Español' : 'English',
+      puntualidad:  pick(isEs ? opts4 : opts4e, w),
+      presentacion: pick(isEs ? opts4 : opts4e, w),
+      calidad:      pick(isEs ? opts4 : opts4e, w),
+      atencion:     pick(isEs ? opts4 : opts4e, w),
+      satisfaccion: pick(isEs ? sat  : sate,  w),
+      comentario:   comments[Math.floor(Math.random() * comments.length)] || '—',
     });
   }
-  return data.sort((a,b)=>new Date(b.timestamp)-new Date(a.timestamp));
+  return data.sort(function(a, b) { return new Date(b.timestamp) - new Date(a.timestamp); });
 }
 
 function setStatus(type, msg) {
-  const dot  = document.getElementById('statusDot');
-  const text = document.getElementById('statusText');
-  dot.className = 'status-dot' + (type==='loading'?' loading':type==='error'?' error':'');
+  var dot  = document.getElementById('statusDot');
+  var text = document.getElementById('statusText');
+  dot.className = 'status-dot' + (type === 'loading' ? ' loading' : type === 'error' ? ' error' : '');
   text.textContent = msg;
 }
 
-/* ═══════════════════════════════════════════
-   FILTERS
-═══════════════════════════════════════════ */
+/* FILTERS */
 function populateDateFilter() {
-  const sel = document.getElementById('fDate');
-  const dates = [...new Set(allData.map(r => {
-    try { return r.timestamp.split(',')[0].trim(); } catch(e) { return r.timestamp; }
-  }))].sort().reverse();
+  var sel   = document.getElementById('fDate');
+  var dates = [];
+  var seen  = {};
+  allData.forEach(function(r) {
+    var d = r.timestamp ? r.timestamp.split(',')[0].trim() : r.timestamp;
+    if (!seen[d]) { seen[d] = true; dates.push(d); }
+  });
+  dates.sort().reverse();
   sel.innerHTML = '<option value="">Todas las fechas</option>';
-  dates.forEach(d => {
-    const o = document.createElement('option');
+  dates.forEach(function(d) {
+    var o = document.createElement('option');
     o.value = d; o.textContent = d; sel.appendChild(o);
   });
 }
 
 function applyFilters() {
-  const fDate = document.getElementById('fDate').value;
-  const fSat  = document.getElementById('fSat').value;
-  const fLang = document.getElementById('fLang').value;
-  filtered = allData.filter(r => {
-    const dateStr = r.timestamp ? r.timestamp.split(',')[0].trim() : '';
+  var fDate = document.getElementById('fDate').value;
+  var fSat  = document.getElementById('fSat').value;
+  var fLang = document.getElementById('fLang').value;
+  filtered = allData.filter(function(r) {
+    var dateStr = r.timestamp ? r.timestamp.split(',')[0].trim() : '';
     if (fDate && dateStr !== fDate) return false;
     if (fSat  && r.satisfaccion !== fSat) return false;
     if (fLang && r.idioma !== fLang) return false;
@@ -880,21 +833,19 @@ function clearFilters() {
   applyFilters();
 }
 
-/* ═══════════════════════════════════════════
-   VIEWS
-═══════════════════════════════════════════ */
-const VIEW_TITLES = {
-  overview:     ['Resumen General', 'Encuesta de Room Service · Holiday Inn Miraflores'],
-  responses:    ['Respuestas', 'Detalle de todas las respuestas recibidas'],
-  trends:       ['Tendencias', 'Evolución de calificaciones a lo largo del tiempo'],
-  satisfaction: ['Satisfacción', 'Análisis detallado de satisfacción por categoría'],
+/* VIEWS */
+var VIEW_TITLES = {
+  overview:     ['Resumen General',  'Encuesta de Room Service · Holiday Inn Miraflores'],
+  responses:    ['Respuestas',       'Detalle de todas las respuestas recibidas'],
+  trends:       ['Tendencias',       'Evolución de calificaciones a lo largo del tiempo'],
+  satisfaction: ['Satisfacción',     'Análisis detallado de satisfacción por categoría'],
 };
 
 function showView(v) {
   currentView = v;
-  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(el => {
-    if (el.getAttribute('onclick').includes(v)) el.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(function(el) {
+    el.classList.remove('active');
+    if (el.getAttribute('onclick') && el.getAttribute('onclick').indexOf(v) !== -1) el.classList.add('active');
   });
   document.getElementById('viewTitle').textContent = VIEW_TITLES[v][0];
   document.getElementById('viewSub').textContent   = VIEW_TITLES[v][1];
@@ -903,20 +854,20 @@ function showView(v) {
 
 function renderView(v) {
   destroyCharts();
-  if (v === 'overview')     renderOverview();
+  if      (v === 'overview')     renderOverview();
   else if (v === 'responses')    renderResponses();
   else if (v === 'trends')       renderTrends();
   else if (v === 'satisfaction') renderSatisfaction();
 }
 
 function destroyCharts() {
-  Object.values(charts).forEach(c => { try { c.destroy(); } catch(e){} });
+  Object.values(charts).forEach(function(c) { try { c.destroy(); } catch(e){} });
   charts = {};
 }
 
-/* ─── STAR SCORE ─── */
+/* HELPERS */
 function scoreOf(val) {
-  const map = {
+  var map = {
     'Excelente':4,'Bueno':3,'Regular':2,'Malo':1,
     'Excellent':4,'Good':3,'Fair':2,'Poor':1,
     'Muy satisfecho(a)':4,'Satisfecho(a)':3,'Neutral':2,'Insatisfecho(a)':1,
@@ -926,321 +877,274 @@ function scoreOf(val) {
 }
 function avg(arr) {
   if (!arr.length) return 0;
-  return arr.reduce((a,b)=>a+b,0)/arr.length;
+  return arr.reduce(function(a,b){return a+b;},0) / arr.length;
 }
 function starsHtml(score) {
-  const full = Math.round(score);
-  return '★'.repeat(full) + '☆'.repeat(4-full);
+  var full = Math.round(score);
+  return '★'.repeat(full) + '☆'.repeat(4 - full);
 }
 
-/* ═══════════════════════════════════════════
-   CHART HELPERS
-═══════════════════════════════════════════ */
-const CHART_COLORS = {
-  gold:  'rgba(201,168,76,',
-  green: 'rgba(76,175,130,',
-  blue:  'rgba(76,142,201,',
-  red:   'rgba(201,96,96,',
-  muted: 'rgba(106,127,152,',
-};
-const GRID_COLOR  = 'rgba(201,168,76,.07)';
-const TICK_COLOR  = '#4A6070';
-const FONT_FAMILY = "'Jost', sans-serif";
+/* CHART DEFAULTS */
+var GRID_COLOR  = 'rgba(201,168,76,.07)';
+var TICK_COLOR  = '#4A6070';
+var FONT_FAMILY = "'Jost', sans-serif";
 
 function baseChartOpts(type) {
+  var isFlat = (type === 'pie' || type === 'doughnut');
   return {
     responsive: true, maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
       tooltip: {
         backgroundColor: '#172438',
-        borderColor: 'rgba(201,168,76,.3)',
-        borderWidth: 1,
-        titleColor: '#E8D5A3',
-        bodyColor: '#8A9BB0',
+        borderColor: 'rgba(201,168,76,.3)', borderWidth: 1,
+        titleColor: '#E8D5A3', bodyColor: '#8A9BB0',
         titleFont: { family: FONT_FAMILY, size: 12 },
         bodyFont:  { family: FONT_FAMILY, size: 11 },
         padding: 10, cornerRadius: 4,
       }
     },
-    scales: type === 'pie' || type === 'doughnut' ? {} : {
+    scales: isFlat ? {} : {
       x: { grid: { color: GRID_COLOR }, ticks: { color: TICK_COLOR, font: { family: FONT_FAMILY, size: 10 } }, border: { color: GRID_COLOR } },
       y: { grid: { color: GRID_COLOR }, ticks: { color: TICK_COLOR, font: { family: FONT_FAMILY, size: 10 } }, border: { color: GRID_COLOR } },
     },
   };
 }
 
-/* ═══════════════════════════════════════════
-   VIEW: OVERVIEW
-═══════════════════════════════════════════ */
+/* ── OVERVIEW ── */
 function renderOverview() {
-  const d = filtered;
-  const n = d.length;
-  const avgP = avg(d.map(r=>scoreOf(r.puntualidad)));
-  const avgPr = avg(d.map(r=>scoreOf(r.presentacion)));
-  const avgC  = avg(d.map(r=>scoreOf(r.calidad)));
-  const avgA  = avg(d.map(r=>scoreOf(r.atencion)));
-  const avgS  = avg(d.map(r=>scoreOf(r.satisfaccion)));
-  const overall = avg([avgP,avgPr,avgC,avgA,avgS]);
-  const posRate = n ? Math.round(d.filter(r=>['Muy satisfecho(a)','Satisfecho(a)','Very satisfied','Satisfied'].includes(r.satisfaccion)).length/n*100) : 0;
+  var d  = filtered;
+  var n  = d.length;
+  var avgP  = avg(d.map(function(r){return scoreOf(r.puntualidad);}));
+  var avgPr = avg(d.map(function(r){return scoreOf(r.presentacion);}));
+  var avgC  = avg(d.map(function(r){return scoreOf(r.calidad);}));
+  var avgA  = avg(d.map(function(r){return scoreOf(r.atencion);}));
+  var avgS  = avg(d.map(function(r){return scoreOf(r.satisfaccion);}));
+  var overall  = avg([avgP,avgPr,avgC,avgA,avgS]);
+  var posRate  = n ? Math.round(d.filter(function(r){return ['Muy satisfecho(a)','Satisfecho(a)','Very satisfied','Satisfied'].indexOf(r.satisfaccion)!==-1;}).length/n*100) : 0;
 
-  document.getElementById('viewContent').innerHTML = `
-    <div class="kpi-row">
-      ${kpiCard('Respuestas','database',n,'Total recibidas','var(--gold)','201,168,76')}
-      ${kpiCard('Puntuación',   'star',    overall.toFixed(1)+'/4','Promedio general','var(--green)','76,175,130')}
-      ${kpiCard('Satisfacción', 'smile',   posRate+'%','Clientes satisfechos','var(--blue)','76,142,201')}
-      ${kpiCard('Puntualidad',  'clock',   avgP.toFixed(1),'Promedio entrega','var(--gold)','201,168,76')}
-      ${kpiCard('Calidad',      'coffee',  avgC.toFixed(1),'Promedio alimentos','var(--green)','76,175,130')}
-    </div>
-
-    <div class="chart-grid">
-      <div class="chart-card">
-        <div class="chart-title">Satisfacción General</div>
-        <div class="chart-sub">Distribución de respuestas</div>
-        <div class="chart-wrap"><canvas id="cSat"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Promedio por Categoría</div>
-        <div class="chart-sub">Escala 1–4 estrellas</div>
-        <div class="chart-wrap"><canvas id="cCat"></canvas></div>
-      </div>
-    </div>
-
-    <div class="chart-grid">
-      <div class="chart-card full">
-        <div class="chart-title">Respuestas en el Tiempo</div>
-        <div class="chart-sub">Volumen diario de encuestas</div>
-        <div class="chart-wrap tall"><canvas id="cTime"></canvas></div>
-      </div>
-    </div>
-  `;
+  document.getElementById('viewContent').innerHTML =
+    '<div class="kpi-row">' +
+      kpiCard('Respuestas', 'database', n,                   'Total recibidas',   'var(--gold)',  '201,168,76') +
+      kpiCard('Puntuación', 'star',     overall.toFixed(1)+'/4', 'Promedio general','var(--green)','76,175,130') +
+      kpiCard('Satisfacción','smile',   posRate+'%',         'Clientes satisfechos','var(--blue)','76,142,201') +
+      kpiCard('Puntualidad', 'clock',   avgP.toFixed(1),     'Promedio entrega',  'var(--gold)',  '201,168,76') +
+      kpiCard('Calidad',     'coffee',  avgC.toFixed(1),     'Promedio alimentos','var(--green)', '76,175,130') +
+    '</div>' +
+    '<div class="chart-grid">' +
+      '<div class="chart-card"><div class="chart-title">Satisfacción General</div><div class="chart-sub">Distribución de respuestas</div><div class="chart-wrap"><canvas id="cSat"></canvas></div></div>' +
+      '<div class="chart-card"><div class="chart-title">Promedio por Categoría</div><div class="chart-sub">Escala 1–4 estrellas</div><div class="chart-wrap"><canvas id="cCat"></canvas></div></div>' +
+    '</div>' +
+    '<div class="chart-grid">' +
+      '<div class="chart-card full"><div class="chart-title">Respuestas en el Tiempo</div><div class="chart-sub">Volumen diario de encuestas</div><div class="chart-wrap tall"><canvas id="cTime"></canvas></div></div>' +
+    '</div>';
 
   if (!n) return;
 
-  // Satisfaction doughnut
-  const satLabels = ['Excelente/Muy sat.','Bueno/Satisfecho','Regular/Neutral','Malo/Insatisfecho'];
-  const satCounts = [
-    d.filter(r=>['Excelente','Excellent','Muy satisfecho(a)','Very satisfied'].includes(r.satisfaccion)).length,
-    d.filter(r=>['Bueno','Good','Satisfecho(a)','Satisfied'].includes(r.satisfaccion)).length,
-    d.filter(r=>['Regular','Fair','Neutral'].includes(r.satisfaccion)).length,
-    d.filter(r=>['Malo','Poor','Insatisfecho(a)','Dissatisfied'].includes(r.satisfaccion)).length,
-  ];
+  /* Satisfaction doughnut */
   charts.sat = new Chart(document.getElementById('cSat'), {
     type: 'doughnut',
     data: {
-      labels: satLabels,
-      datasets: [{ data: satCounts,
-        backgroundColor: ['rgba(76,175,130,.8)','rgba(201,168,76,.8)','rgba(106,127,152,.8)','rgba(201,96,96,.8)'],
-        borderColor: '#172438', borderWidth: 3, hoverOffset: 6 }]
+      labels: ['Excelente/Muy sat.','Bueno/Satisfecho','Regular/Neutral','Malo/Insatisfecho'],
+      datasets: [{ data: [
+        d.filter(function(r){return ['Excelente','Excellent','Muy satisfecho(a)','Very satisfied'].indexOf(r.satisfaccion)!==-1;}).length,
+        d.filter(function(r){return ['Bueno','Good','Satisfecho(a)','Satisfied'].indexOf(r.satisfaccion)!==-1;}).length,
+        d.filter(function(r){return ['Regular','Fair','Neutral'].indexOf(r.satisfaccion)!==-1;}).length,
+        d.filter(function(r){return ['Malo','Poor','Insatisfecho(a)','Dissatisfied'].indexOf(r.satisfaccion)!==-1;}).length,
+      ],
+      backgroundColor:['rgba(76,175,130,.8)','rgba(201,168,76,.8)','rgba(106,127,152,.8)','rgba(201,96,96,.8)'],
+      borderColor:'#172438', borderWidth:3, hoverOffset:6 }]
     },
-    options: { ...baseChartOpts('doughnut'),
-      plugins: { ...baseChartOpts('doughnut').plugins,
-        legend: { display: true, position: 'right',
-          labels: { color: '#6A7F98', font: { family: FONT_FAMILY, size: 10 }, padding: 12, boxWidth: 12 } }
-      },
+    options: Object.assign({}, baseChartOpts('doughnut'), {
+      plugins: Object.assign({}, baseChartOpts('doughnut').plugins, {
+        legend: { display:true, position:'right', labels:{ color:'#6A7F98', font:{family:FONT_FAMILY,size:10}, padding:12, boxWidth:12 } }
+      }),
       cutout: '62%',
-    }
+    })
   });
 
-  // Category radar → bar
-  const catData = [avgP, avgPr, avgC, avgA, avgS];
-  const catLabels = ['Puntualidad','Presentación','Calidad','Atención','Satisfacción'];
+  /* Category bar */
+  var catData   = [avgP, avgPr, avgC, avgA, avgS];
+  var catLabels = ['Puntualidad','Presentación','Calidad','Atención','Satisfacción'];
   charts.cat = new Chart(document.getElementById('cCat'), {
     type: 'bar',
     data: {
       labels: catLabels,
-      datasets: [{
-        data: catData,
-        backgroundColor: catData.map(v =>
-          v>=3.5?'rgba(76,175,130,.75)':v>=2.5?'rgba(201,168,76,.75)':v>=1.5?'rgba(106,127,152,.7)':'rgba(201,96,96,.75)'
-        ),
-        borderRadius: 4, borderSkipped: false,
-      }]
+      datasets: [{ data: catData,
+        backgroundColor: catData.map(function(v){
+          return v>=3.5?'rgba(76,175,130,.75)':v>=2.5?'rgba(201,168,76,.75)':v>=1.5?'rgba(106,127,152,.7)':'rgba(201,96,96,.75)';
+        }),
+        borderRadius:4, borderSkipped:false }]
     },
-    options: { ...baseChartOpts('bar'),
-      plugins: { ...baseChartOpts('bar').plugins,
-        tooltip: { ...baseChartOpts('bar').plugins.tooltip,
-          callbacks: { label: ctx => ' ' + ctx.raw.toFixed(2) + ' / 4.00 ★' }
-        }
-      },
-      scales: {
-        x: baseChartOpts('bar').scales.x,
-        y: { ...baseChartOpts('bar').scales.y, min: 0, max: 4,
-          ticks: { ...baseChartOpts('bar').scales.y.ticks, stepSize: 1,
-            callback: v => v + '★' }
-        }
-      }
-    }
+    options: Object.assign({}, baseChartOpts('bar'), {
+      plugins: Object.assign({}, baseChartOpts('bar').plugins, {
+        tooltip: Object.assign({}, baseChartOpts('bar').plugins.tooltip, {
+          callbacks: { label: function(ctx){ return ' '+ctx.raw.toFixed(2)+' / 4.00 ★'; } }
+        })
+      }),
+      scales: Object.assign({}, baseChartOpts('bar').scales, {
+        y: Object.assign({}, baseChartOpts('bar').scales.y, {
+          min:0, max:4,
+          ticks: Object.assign({}, baseChartOpts('bar').scales.y.ticks, {
+            stepSize:1, callback:function(v){return v+'★';}
+          })
+        })
+      })
+    })
   });
 
-  // Timeline
-  const byDay = {};
-  d.forEach(r => {
-    const day = r.timestamp.split(',')[0].trim();
+  /* Timeline */
+  var byDay = {};
+  d.forEach(function(r){
+    var day = r.timestamp.split(',')[0].trim();
     byDay[day] = (byDay[day]||0)+1;
   });
-  const dayKeys = Object.keys(byDay).sort();
+  var dayKeys = Object.keys(byDay).sort();
   charts.time = new Chart(document.getElementById('cTime'), {
     type: 'line',
     data: {
       labels: dayKeys,
-      datasets: [{
-        data: dayKeys.map(k=>byDay[k]),
-        borderColor: 'rgba(201,168,76,.9)',
-        backgroundColor: 'rgba(201,168,76,.08)',
-        borderWidth: 2, pointRadius: 4,
-        pointBackgroundColor: 'rgba(201,168,76,1)',
-        fill: true, tension: .35,
-      }]
+      datasets: [{ data: dayKeys.map(function(k){return byDay[k];}),
+        borderColor:'rgba(201,168,76,.9)', backgroundColor:'rgba(201,168,76,.08)',
+        borderWidth:2, pointRadius:4, pointBackgroundColor:'rgba(201,168,76,1)',
+        fill:true, tension:.35 }]
     },
-    options: { ...baseChartOpts('line'),
-      plugins: { ...baseChartOpts('line').plugins,
-        tooltip: { ...baseChartOpts('line').plugins.tooltip,
-          callbacks: { label: ctx => ' ' + ctx.raw + ' respuestas' }
-        }
-      }
-    }
+    options: Object.assign({}, baseChartOpts('line'), {
+      plugins: Object.assign({}, baseChartOpts('line').plugins, {
+        tooltip: Object.assign({}, baseChartOpts('line').plugins.tooltip, {
+          callbacks: { label: function(ctx){ return ' '+ctx.raw+' respuestas'; } }
+        })
+      })
+    })
   });
 }
 
+/* KPI CARD */
 function kpiCard(title, icon, value, sub, color, rgb) {
-  const icons = {
-    database: '<circle cx="12" cy="5" r="9"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>',
-    star: '<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="gold" stroke="black"/></svg>',
-    smile: '<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>',
-    clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
-    coffee: '<path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>',
+  var paths = {
+    database: 'M21 5c0 1.1-4 2-9 2S3 6.1 3 5m18 0c0-1.1-4-2-9-2S3 3.9 3 5m18 0v6M3 5v6m18 0c0 1.1-4 2-9 2s-9-.9-9-2m18 0v6M3 11v6m18 0c0 1.1-4 2-9 2s-9-.9-9-2',
+    star:     'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z',
+    smile:    'M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10z',
+    clock:    'M22 12c0 5.52-4.48 10-10 10S2 17.52 2 12 6.48 2 12 2s10 4.48 10 10zM12 6v6l4 2',
+    coffee:   'M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3',
   };
-  return `<div class="kpi-card" style="--kpi-color:${color};--kpi-rgb:${rgb}">
-    <div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="${icons[icon]}"/></svg></div>
-    <div class="kpi-value">${value}</div>
-    <div class="kpi-label">${title}</div>
-    <div class="kpi-sub">${sub}</div>
-  </div>`;
+  return '<div class="kpi-card" style="--kpi-color:'+color+';--kpi-rgb:'+rgb+'">' +
+    '<div class="kpi-icon"><svg viewBox="0 0 24 24"><path d="'+paths[icon]+'"/></svg></div>' +
+    '<div class="kpi-value">'+value+'</div>' +
+    '<div class="kpi-label">'+title+'</div>' +
+    '<div class="kpi-sub">'+sub+'</div>' +
+  '</div>';
 }
 
-/* ═══════════════════════════════════════════
-   VIEW: RESPONSES TABLE
-═══════════════════════════════════════════ */
+/* ── RESPONSES TABLE ── */
 function renderResponses() {
-  const d = filtered;
-  const rows = d.slice(0,200).map(r => {
-    const score = avg([scoreOf(r.puntualidad),scoreOf(r.presentacion),scoreOf(r.calidad),scoreOf(r.atencion),scoreOf(r.satisfaccion)]);
-    const badge = score>=3.5?'badge-green':score>=2.5?'badge-gold':score>=1.5?'badge-muted':'badge-red';
-    const badgeLabel = score>=3.5?'Excelente':score>=2.5?'Bueno':score>=1.5?'Regular':'Malo';
-    return `<tr>
-      <td style="color:var(--muted);font-size:.75rem">${r.timestamp}</td>
-      <td style="font-weight:500">${r.nombre||'—'}</td>
-      <td><span class="badge badge-muted">${r.idioma}</span></td>
-      <td class="stars-cell">${starsHtml(scoreOf(r.puntualidad))}</td>
-      <td class="stars-cell">${starsHtml(scoreOf(r.presentacion))}</td>
-      <td class="stars-cell">${starsHtml(scoreOf(r.calidad))}</td>
-      <td class="stars-cell">${starsHtml(scoreOf(r.atencion))}</td>
-      <td>${r.satisfaccion||'—'}</td>
-      <td><span class="badge ${badge}">${badgeLabel}</span></td>
-      <td style="color:var(--muted);max-width:180px;overflow:hidden;text-overflow:ellipsis" title="${r.comentario||''}">${r.comentario&&r.comentario!=='—'?r.comentario.substring(0,40)+(r.comentario.length>40?'…':''):'—'}</td>
-    </tr>`;
+  var d = filtered;
+  var rows = d.slice(0, 200).map(function(r) {
+    var score = avg([scoreOf(r.puntualidad),scoreOf(r.presentacion),scoreOf(r.calidad),scoreOf(r.atencion),scoreOf(r.satisfaccion)]);
+    var badge = score>=3.5?'badge-green':score>=2.5?'badge-gold':score>=1.5?'badge-muted':'badge-red';
+    var badgeLabel = score>=3.5?'Excelente':score>=2.5?'Bueno':score>=1.5?'Regular':'Malo';
+    var com = r.comentario && r.comentario !== '—' ? r.comentario.substring(0,40)+(r.comentario.length>40?'…':'') : '—';
+    return '<tr>' +
+      '<td style="color:var(--muted);font-size:.75rem">'+r.timestamp+'</td>' +
+      '<td style="font-weight:500">'+(r.nombre||'—')+'</td>' +
+      '<td style="color:var(--gold)">'+(r.habitacion||'—')+'</td>' +
+      '<td><span class="badge badge-muted">'+r.idioma+'</span></td>' +
+      '<td class="stars-cell">'+starsHtml(scoreOf(r.puntualidad))+'</td>' +
+      '<td class="stars-cell">'+starsHtml(scoreOf(r.presentacion))+'</td>' +
+      '<td class="stars-cell">'+starsHtml(scoreOf(r.calidad))+'</td>' +
+      '<td class="stars-cell">'+starsHtml(scoreOf(r.atencion))+'</td>' +
+      '<td>'+(r.satisfaccion||'—')+'</td>' +
+      '<td><span class="badge '+badge+'">'+badgeLabel+'</span></td>' +
+      '<td style="color:var(--muted);max-width:180px;overflow:hidden;text-overflow:ellipsis" title="'+(r.comentario||'')+'">'+com+'</td>' +
+    '</tr>';
   }).join('');
 
-  document.getElementById('viewContent').innerHTML = `
-    <div class="table-card">
-      <div class="table-header">
-        <div>
-          <div class="table-title">Registro de Respuestas</div>
-          <div class="table-sub">${d.length} respuestas · ordenadas por fecha</div>
-        </div>
-      </div>
-      <div class="tbl-wrap">
-        <table>
-          <thead><tr>
-            <th>Fecha</th><th>Huésped</th><th>Idioma</th>
-            <th>Puntualidad</th><th>Presentación</th><th>Calidad</th><th>Atención</th>
-            <th>Satisfacción</th><th>Resultado</th><th>Comentario</th>
-          </tr></thead>
-          <tbody>${rows || '<tr><td colspan="10" class="empty-state"><div class="empty-icon">✦</div>Sin registros para los filtros seleccionados</td></tr>'}</tbody>
-        </table>
-      </div>
-    </div>`;
+  document.getElementById('viewContent').innerHTML =
+    '<div class="table-card">' +
+      '<div class="table-header">' +
+        '<div><div class="table-title">Registro de Respuestas</div>' +
+        '<div class="table-sub">'+d.length+' respuestas · ordenadas por fecha</div></div>' +
+      '</div>' +
+      '<div class="tbl-wrap"><table>' +
+        '<thead><tr>' +
+          '<th>Fecha</th><th>Huésped</th><th>Habitación</th><th>Idioma</th>' +
+          '<th>Puntualidad</th><th>Presentación</th><th>Calidad</th><th>Atención</th>' +
+          '<th>Satisfacción</th><th>Resultado</th><th>Comentario</th>' +
+        '</tr></thead>' +
+        '<tbody>'+(rows||'<tr><td colspan="11" class="empty-state"><div class="empty-icon">✦</div>Sin registros para los filtros seleccionados</td></tr>')+'</tbody>' +
+      '</table></div>' +
+    '</div>';
 }
 
-/* ═══════════════════════════════════════════
-   VIEW: TRENDS
-═══════════════════════════════════════════ */
+/* ── TRENDS ── */
 function renderTrends() {
-  document.getElementById('viewContent').innerHTML = `
-    <div class="chart-grid">
-      <div class="chart-card full">
-        <div class="chart-title">Evolución de Promedios por Categoría</div>
-        <div class="chart-sub">Últimos 30 días · escala 1–4</div>
-        <div class="chart-wrap tall"><canvas id="cTrend"></canvas></div>
-      </div>
-    </div>
-    <div class="chart-grid">
-      <div class="chart-card">
-        <div class="chart-title">Distribución de Puntualidad</div>
-        <div class="chart-sub">Cantidad de respuestas por nivel</div>
-        <div class="chart-wrap"><canvas id="cPunt"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Distribución de Calidad</div>
-        <div class="chart-sub">Cantidad de respuestas por nivel</div>
-        <div class="chart-wrap"><canvas id="cCal"></canvas></div>
-      </div>
-    </div>`;
+  document.getElementById('viewContent').innerHTML =
+    '<div class="chart-grid">' +
+      '<div class="chart-card full"><div class="chart-title">Evolución de Promedios por Categoría</div><div class="chart-sub">Últimos 30 días · escala 1–4</div><div class="chart-wrap tall"><canvas id="cTrend"></canvas></div></div>' +
+    '</div>' +
+    '<div class="chart-grid">' +
+      '<div class="chart-card"><div class="chart-title">Distribución de Puntualidad</div><div class="chart-sub">Cantidad de respuestas por nivel</div><div class="chart-wrap"><canvas id="cPunt"></canvas></div></div>' +
+      '<div class="chart-card"><div class="chart-title">Distribución de Calidad</div><div class="chart-sub">Cantidad de respuestas por nivel</div><div class="chart-wrap"><canvas id="cCal"></canvas></div></div>' +
+    '</div>';
 
-  const d = filtered;
+  var d = filtered;
   if (!d.length) return;
 
-  // Group by day
-  const byDay = {};
-  d.forEach(r => {
-    const day = r.timestamp.split(',')[0].trim();
+  var byDay = {};
+  d.forEach(function(r){
+    var day = r.timestamp.split(',')[0].trim();
     if (!byDay[day]) byDay[day] = [];
     byDay[day].push(r);
   });
-  const days = Object.keys(byDay).sort().slice(-20);
+  var days = Object.keys(byDay).sort().slice(-20);
 
-  const catFields = ['puntualidad','presentacion','calidad','atencion'];
-  const catColors = ['rgba(201,168,76,','rgba(76,175,130,','rgba(76,142,201,','rgba(201,96,96,'];
-  const catNames  = ['Puntualidad','Presentación','Calidad','Atención'];
+  var catFields = ['puntualidad','presentacion','calidad','atencion'];
+  var catColors = ['rgba(201,168,76,','rgba(76,175,130,','rgba(76,142,201,','rgba(201,96,96,'];
+  var catNames  = ['Puntualidad','Presentación','Calidad','Atención'];
 
   charts.trend = new Chart(document.getElementById('cTrend'), {
     type: 'line',
     data: {
       labels: days,
-      datasets: catFields.map((f,i) => ({
-        label: catNames[i],
-        data: days.map(day => avg(byDay[day].map(r=>scoreOf(r[f])))||null),
-        borderColor: catColors[i]+'0.9)',
-        backgroundColor: catColors[i]+'0.05)',
-        borderWidth: 2, pointRadius: 3, tension: .35, fill: false,
-      }))
+      datasets: catFields.map(function(f,i){
+        return {
+          label: catNames[i],
+          data: days.map(function(day){ return avg(byDay[day].map(function(r){return scoreOf(r[f]);})) || null; }),
+          borderColor: catColors[i]+'0.9)', backgroundColor: catColors[i]+'0.05)',
+          borderWidth:2, pointRadius:3, tension:.35, fill:false,
+        };
+      })
     },
-    options: { ...baseChartOpts('line'),
-      plugins: { ...baseChartOpts('line').plugins,
-        legend: { display: true, position: 'top',
-          labels: { color: '#6A7F98', font: { family: FONT_FAMILY, size: 10 }, boxWidth: 12, padding: 16 } }
-      },
-      scales: { ...baseChartOpts('line').scales,
-        y: { ...baseChartOpts('line').scales.y, min:1, max:4, ticks:{...baseChartOpts('line').scales.y.ticks, callback:v=>v+'★'} }
-      }
-    }
+    options: Object.assign({}, baseChartOpts('line'), {
+      plugins: Object.assign({}, baseChartOpts('line').plugins, {
+        legend: { display:true, position:'top', labels:{ color:'#6A7F98', font:{family:FONT_FAMILY,size:10}, boxWidth:12, padding:16 } }
+      }),
+      scales: Object.assign({}, baseChartOpts('line').scales, {
+        y: Object.assign({}, baseChartOpts('line').scales.y, {
+          min:1, max:4,
+          ticks: Object.assign({}, baseChartOpts('line').scales.y.ticks, { callback:function(v){return v+'★';} })
+        })
+      })
+    })
   });
 
   function distChart(id, field) {
-    const labels = ['Excelente','Bueno','Regular','Malo'];
-    const counts = labels.map(l => d.filter(r=>
-      ['Excelente','Excellent'].includes(r[field]) && l==='Excelente' ||
-      ['Bueno','Good'].includes(r[field]) && l==='Bueno' ||
-      ['Regular','Fair'].includes(r[field]) && l==='Regular' ||
-      ['Malo','Poor'].includes(r[field]) && l==='Malo'
-    ).length);
+    var labels = ['Excelente','Bueno','Regular','Malo'];
+    var counts = labels.map(function(l){
+      return d.filter(function(r){
+        if (l==='Excelente') return ['Excelente','Excellent'].indexOf(r[field])!==-1;
+        if (l==='Bueno')     return ['Bueno','Good'].indexOf(r[field])!==-1;
+        if (l==='Regular')   return ['Regular','Fair'].indexOf(r[field])!==-1;
+        if (l==='Malo')      return ['Malo','Poor'].indexOf(r[field])!==-1;
+        return false;
+      }).length;
+    });
     return new Chart(document.getElementById(id), {
       type: 'bar',
-      data: { labels,
-        datasets: [{ data: counts,
+      data: { labels: labels,
+        datasets:[{ data:counts,
           backgroundColor:['rgba(76,175,130,.75)','rgba(201,168,76,.75)','rgba(106,127,152,.7)','rgba(201,96,96,.75)'],
-          borderRadius: 4, borderSkipped: false }]
+          borderRadius:4, borderSkipped:false }]
       },
       options: baseChartOpts('bar')
     });
@@ -1249,71 +1153,52 @@ function renderTrends() {
   charts.cal  = distChart('cCal','calidad');
 }
 
-/* ═══════════════════════════════════════════
-   VIEW: SATISFACTION
-═══════════════════════════════════════════ */
+/* ── SATISFACTION ── */
 function renderSatisfaction() {
-  document.getElementById('viewContent').innerHTML = `
-    <div class="chart-grid chart-grid-3">
-      <div class="chart-card">
-        <div class="chart-title">Puntualidad</div>
-        <div class="chart-sub">Entrega del pedido</div>
-        <div class="chart-wrap"><canvas id="cs1"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Presentación</div>
-        <div class="chart-sub">Del pedido</div>
-        <div class="chart-wrap"><canvas id="cs2"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Calidad</div>
-        <div class="chart-sub">Sabor y alimentos</div>
-        <div class="chart-wrap"><canvas id="cs3"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Atención</div>
-        <div class="chart-sub">Equipo de servicio</div>
-        <div class="chart-wrap"><canvas id="cs4"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Satisfacción General</div>
-        <div class="chart-sub">Experiencia global</div>
-        <div class="chart-wrap"><canvas id="cs5"></canvas></div>
-      </div>
-      <div class="chart-card">
-        <div class="chart-title">Radar General</div>
-        <div class="chart-sub">Todas las categorías</div>
-        <div class="chart-wrap"><canvas id="csRadar"></canvas></div>
-      </div>
-    </div>`;
+  document.getElementById('viewContent').innerHTML =
+    '<div class="chart-grid chart-grid-3">' +
+      '<div class="chart-card"><div class="chart-title">Puntualidad</div><div class="chart-sub">Entrega del pedido</div><div class="chart-wrap"><canvas id="cs1"></canvas></div></div>' +
+      '<div class="chart-card"><div class="chart-title">Presentación</div><div class="chart-sub">Del pedido</div><div class="chart-wrap"><canvas id="cs2"></canvas></div></div>' +
+      '<div class="chart-card"><div class="chart-title">Calidad</div><div class="chart-sub">Sabor y alimentos</div><div class="chart-wrap"><canvas id="cs3"></canvas></div></div>' +
+      '<div class="chart-card"><div class="chart-title">Atención</div><div class="chart-sub">Equipo de servicio</div><div class="chart-wrap"><canvas id="cs4"></canvas></div></div>' +
+      '<div class="chart-card"><div class="chart-title">Satisfacción General</div><div class="chart-sub">Experiencia global</div><div class="chart-wrap"><canvas id="cs5"></canvas></div></div>' +
+      '<div class="chart-card"><div class="chart-title">Radar General</div><div class="chart-sub">Todas las categorías</div><div class="chart-wrap"><canvas id="csRadar"></canvas></div></div>' +
+    '</div>';
 
-  const d = filtered;
+  var d = filtered;
   if (!d.length) return;
 
   function makePie(id, field, isSat) {
-    const grp = isSat
-      ? { 'Muy satisfecho(a)/Very satisfied': d.filter(r=>['Muy satisfecho(a)','Very satisfied'].includes(r[field])).length,
-          'Satisfecho(a)/Satisfied':           d.filter(r=>['Satisfecho(a)','Satisfied'].includes(r[field])).length,
-          'Neutral':                           d.filter(r=>['Neutral'].includes(r[field])).length,
-          'Insatisfecho(a)/Dissatisfied':      d.filter(r=>['Insatisfecho(a)','Dissatisfied'].includes(r[field])).length }
-      : { 'Excelente/Excellent': d.filter(r=>['Excelente','Excellent'].includes(r[field])).length,
-          'Bueno/Good':          d.filter(r=>['Bueno','Good'].includes(r[field])).length,
-          'Regular/Fair':        d.filter(r=>['Regular','Fair'].includes(r[field])).length,
-          'Malo/Poor':           d.filter(r=>['Malo','Poor'].includes(r[field])).length };
+    var labels, counts;
+    if (isSat) {
+      labels = ['Muy sat./Very satisfied','Satisfecho/Satisfied','Neutral','Insatisfecho/Dissatisfied'];
+      counts = [
+        d.filter(function(r){return ['Muy satisfecho(a)','Very satisfied'].indexOf(r[field])!==-1;}).length,
+        d.filter(function(r){return ['Satisfecho(a)','Satisfied'].indexOf(r[field])!==-1;}).length,
+        d.filter(function(r){return r[field]==='Neutral';}).length,
+        d.filter(function(r){return ['Insatisfecho(a)','Dissatisfied'].indexOf(r[field])!==-1;}).length,
+      ];
+    } else {
+      labels = ['Excelente/Excellent','Bueno/Good','Regular/Fair','Malo/Poor'];
+      counts = [
+        d.filter(function(r){return ['Excelente','Excellent'].indexOf(r[field])!==-1;}).length,
+        d.filter(function(r){return ['Bueno','Good'].indexOf(r[field])!==-1;}).length,
+        d.filter(function(r){return ['Regular','Fair'].indexOf(r[field])!==-1;}).length,
+        d.filter(function(r){return ['Malo','Poor'].indexOf(r[field])!==-1;}).length,
+      ];
+    }
     return new Chart(document.getElementById(id), {
       type: 'pie',
-      data: {
-        labels: Object.keys(grp),
-        datasets: [{ data: Object.values(grp),
+      data: { labels: labels,
+        datasets:[{ data:counts,
           backgroundColor:['rgba(76,175,130,.8)','rgba(201,168,76,.8)','rgba(106,127,152,.75)','rgba(201,96,96,.8)'],
           borderColor:'#172438', borderWidth:3 }]
       },
-      options: { ...baseChartOpts('pie'),
-        plugins: { ...baseChartOpts('pie').plugins,
-          legend: { display: true, position: 'bottom',
-            labels: { color:'#6A7F98', font:{ family:FONT_FAMILY, size:9 }, boxWidth:10, padding:8 } }
-        }
-      }
+      options: Object.assign({}, baseChartOpts('pie'), {
+        plugins: Object.assign({}, baseChartOpts('pie').plugins, {
+          legend: { display:true, position:'bottom', labels:{ color:'#6A7F98', font:{family:FONT_FAMILY,size:9}, boxWidth:10, padding:8 } }
+        })
+      })
     });
   }
   charts.s1 = makePie('cs1','puntualidad',false);
@@ -1322,183 +1207,112 @@ function renderSatisfaction() {
   charts.s4 = makePie('cs4','atencion',false);
   charts.s5 = makePie('cs5','satisfaccion',true);
 
-  // Radar
-  const catAvg = ['puntualidad','presentacion','calidad','atencion','satisfaccion']
-    .map(f => avg(d.map(r=>scoreOf(r[f]))));
+  var catAvg = ['puntualidad','presentacion','calidad','atencion','satisfaccion']
+    .map(function(f){return avg(d.map(function(r){return scoreOf(r[f]);}));});
   charts.radar = new Chart(document.getElementById('csRadar'), {
     type: 'radar',
     data: {
       labels: ['Puntualidad','Presentación','Calidad','Atención','Satisfacción'],
-      datasets: [{
-        data: catAvg,
-        borderColor: 'rgba(201,168,76,.9)',
-        backgroundColor: 'rgba(201,168,76,.1)',
-        pointBackgroundColor: 'rgba(201,168,76,1)',
-        borderWidth: 2, pointRadius: 4,
-      }]
+      datasets:[{ data:catAvg,
+        borderColor:'rgba(201,168,76,.9)', backgroundColor:'rgba(201,168,76,.1)',
+        pointBackgroundColor:'rgba(201,168,76,1)', borderWidth:2, pointRadius:4 }]
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend:{ display:false }, tooltip: baseChartOpts('radar').plugins.tooltip },
+      responsive:true, maintainAspectRatio:false,
+      plugins: { legend:{display:false}, tooltip: baseChartOpts('radar').plugins.tooltip },
       scales: {
         r: {
-          min:0, max:4, ticks:{ stepSize:1, color:TICK_COLOR, font:{family:FONT_FAMILY,size:9}, callback:v=>v+'★', backdropColor:'transparent' },
-          grid:{ color:GRID_COLOR }, angleLines:{ color:GRID_COLOR },
-          pointLabels:{ color:'#6A7F98', font:{family:FONT_FAMILY,size:10} }
+          min:0, max:4,
+          ticks:{ stepSize:1, color:TICK_COLOR, font:{family:FONT_FAMILY,size:9}, callback:function(v){return v+'★';}, backdropColor:'transparent' },
+          grid:{color:GRID_COLOR}, angleLines:{color:GRID_COLOR},
+          pointLabels:{color:'#6A7F98', font:{family:FONT_FAMILY,size:10}}
         }
       }
     }
   });
 }
 
-/* ═══════════════════════════════════════════
-   PRINT REPORT
-═══════════════════════════════════════════ */
+/* ── PRINT REPORT ── */
 function printReport() {
-  const d = filtered;
-  const n = d.length;
-  const avgP  = avg(d.map(r=>scoreOf(r.puntualidad)));
-  const avgPr = avg(d.map(r=>scoreOf(r.presentacion)));
-  const avgC  = avg(d.map(r=>scoreOf(r.calidad)));
-  const avgA  = avg(d.map(r=>scoreOf(r.atencion)));
-  const avgS  = avg(d.map(r=>scoreOf(r.satisfaccion)));
-  const overall = avg([avgP,avgPr,avgC,avgA,avgS]);
-  const posRate = n ? Math.round(d.filter(r=>['Muy satisfecho(a)','Satisfecho(a)','Very satisfied','Satisfied'].includes(r.satisfaccion)).length/n*100) : 0;
+  var d = filtered, n = d.length;
+  var avgP  = avg(d.map(function(r){return scoreOf(r.puntualidad);}));
+  var avgPr = avg(d.map(function(r){return scoreOf(r.presentacion);}));
+  var avgC  = avg(d.map(function(r){return scoreOf(r.calidad);}));
+  var avgA  = avg(d.map(function(r){return scoreOf(r.atencion);}));
+  var avgS  = avg(d.map(function(r){return scoreOf(r.satisfaccion);}));
+  var overall = avg([avgP,avgPr,avgC,avgA,avgS]);
+  var posRate = n ? Math.round(d.filter(function(r){return ['Muy satisfecho(a)','Satisfecho(a)','Very satisfied','Satisfied'].indexOf(r.satisfaccion)!==-1;}).length/n*100) : 0;
 
   function distRows(field) {
-    const map = {};
-    d.forEach(r => { const v = r[field]||'—'; map[v]=(map[v]||0)+1; });
-    return Object.entries(map).sort((a,b)=>b[1]-a[1]).map(([k,v])=>{
-      const pct = n ? Math.round(v/n*100) : 0;
-      return `<div class="pr-bar-row">
-        <span class="pr-bar-lbl">${k}</span>
-        <div class="pr-bar-bg"><div class="pr-bar-fill" style="width:${pct}%"></div></div>
-        <span class="pr-bar-pct">${pct}%</span>
-      </div>`;
+    var map = {};
+    d.forEach(function(r){ var v=r[field]||'—'; map[v]=(map[v]||0)+1; });
+    return Object.entries(map).sort(function(a,b){return b[1]-a[1];}).map(function(e){
+      var pct = n ? Math.round(e[1]/n*100) : 0;
+      return '<div class="pr-bar-row"><span class="pr-bar-lbl">'+e[0]+'</span><div class="pr-bar-bg"><div class="pr-bar-fill" style="width:'+pct+'%"></div></div><span class="pr-bar-pct">'+pct+'%</span></div>';
     }).join('');
   }
 
-  const tableRows = d.slice(0,50).map(r => {
-    const score = avg([scoreOf(r.puntualidad),scoreOf(r.presentacion),scoreOf(r.calidad),scoreOf(r.atencion),scoreOf(r.satisfaccion)]);
-    return `<tr>
-      <td>${r.timestamp||''}</td>
-      <td>${r.nombre||'—'}</td>
-      <td>${r.puntualidad||'—'}</td>
-      <td>${r.presentacion||'—'}</td>
-      <td>${r.calidad||'—'}</td>
-      <td>${r.atencion||'—'}</td>
-      <td>${r.satisfaccion||'—'}</td>
-      <td>${'★'.repeat(Math.round(score))}</td>
-      <td>${r.comentario&&r.comentario!=='—'?r.comentario:''}</td>
-    </tr>`;
+  var tableRows = d.slice(0,50).map(function(r){
+    var score = avg([scoreOf(r.puntualidad),scoreOf(r.presentacion),scoreOf(r.calidad),scoreOf(r.atencion),scoreOf(r.satisfaccion)]);
+    return '<tr><td>'+(r.timestamp||'')+'</td><td>'+(r.nombre||'—')+'</td><td>'+(r.habitacion||'—')+'</td><td>'+(r.puntualidad||'—')+'</td><td>'+(r.presentacion||'—')+'</td><td>'+(r.calidad||'—')+'</td><td>'+(r.atencion||'—')+'</td><td>'+(r.satisfaccion||'—')+'</td><td>'+'★'.repeat(Math.round(score))+'</td><td>'+(r.comentario&&r.comentario!=='—'?r.comentario:'')+'</td></tr>';
   }).join('');
 
-  const fDate = document.getElementById('fDate').value;
-  const fSat  = document.getElementById('fSat').value;
-  const filterDesc = [
-    fDate ? 'Fecha: ' + fDate : 'Todas las fechas',
-    fSat  ? 'Satisfacción: ' + fSat : 'Toda satisfacción',
-  ].join(' · ');
+  var fDate = document.getElementById('fDate').value;
+  var fSat  = document.getElementById('fSat').value;
+  var filterDesc = (fDate?'Fecha: '+fDate:'Todas las fechas')+' · '+(fSat?'Satisfacción: '+fSat:'Toda satisfacción');
 
-  document.getElementById('printReport').innerHTML = `
-    <div class="pr-header">
-      <div class="pr-logos">
-        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Holiday_Inn_Logo.svg/1280px-Holiday_Inn_Logo.svg.png" alt="Holiday Inn" style="height:36px"/>
-        <div class="pr-sep"></div>
-        <img src="https://logodix.com/logo/2085101.png" alt="GHL" style="height:28px"/>
-      </div>
-      <div class="pr-title-block">
-        <div class="pr-title">Reporte de Room Service</div>
-        <div class="pr-sub">Holiday Inn Miraflores · Lima, Perú</div>
-      </div>
-    </div>
-
-    <div class="pr-meta">
-      <div><strong>Fecha de emisión</strong>${new Date().toLocaleDateString('es-PE',{day:'2-digit',month:'long',year:'numeric'})}</div>
-      <div><strong>Filtros aplicados</strong>${filterDesc}</div>
-      <div><strong>Total de respuestas</strong>${n}</div>
-      <div><strong>Generado por</strong>Sistema Dashboard · Room Service</div>
-    </div>
-
-    <div class="pr-section-title">Indicadores Clave</div>
-    <div class="pr-kpis">
-      <div class="pr-kpi"><div class="pr-kpi-val">${n}</div><div class="pr-kpi-lbl">Respuestas</div></div>
-      <div class="pr-kpi"><div class="pr-kpi-val">${overall.toFixed(2)}</div><div class="pr-kpi-lbl">Promedio general</div></div>
-      <div class="pr-kpi"><div class="pr-kpi-val">${posRate}%</div><div class="pr-kpi-lbl">Satisfacción positiva</div></div>
-      <div class="pr-kpi"><div class="pr-kpi-val">${avgP.toFixed(2)}</div><div class="pr-kpi-lbl">Puntualidad</div></div>
-      <div class="pr-kpi"><div class="pr-kpi-val">${avgC.toFixed(2)}</div><div class="pr-kpi-lbl">Calidad</div></div>
-    </div>
-
-    <div class="pr-section-title">Distribución por Categoría</div>
-    <div class="pr-dist">
-      <div class="pr-dist-block"><h4>Puntualidad en entrega</h4>${distRows('puntualidad')}</div>
-      <div class="pr-dist-block"><h4>Presentación del pedido</h4>${distRows('presentacion')}</div>
-      <div class="pr-dist-block"><h4>Calidad y sabor</h4>${distRows('calidad')}</div>
-      <div class="pr-dist-block"><h4>Atención del equipo</h4>${distRows('atencion')}</div>
-    </div>
-
-    <div class="pr-section-title">Satisfacción General</div>
-    <div class="pr-dist"><div class="pr-dist-block" style="grid-column:1/-1">${distRows('satisfaccion')}</div></div>
-
-    <div class="pr-section-title">Detalle de Respuestas ${d.length>50?'(primeras 50 de '+d.length+')':''}</div>
-    <table class="pr-table">
-      <thead><tr>
-        <th>Fecha</th><th>Huésped</th><th>Puntualidad</th><th>Presentación</th>
-        <th>Calidad</th><th>Atención</th><th>Satisfacción</th><th>★</th><th>Comentario</th>
-      </tr></thead>
-      <tbody>${tableRows}</tbody>
-    </table>
-
-    <div class="pr-footer">
-      <span>Holiday Inn Miraflores · Av. Larco, Miraflores, Lima, Perú</span>
-      <span>Confidencial · Uso interno</span>
-      <span>${new Date().toLocaleString('es-PE')}</span>
-    </div>`;
+  document.getElementById('printReport').innerHTML =
+    '<div class="pr-header">' +
+      '<div class="pr-logos">' +
+        '<img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Holiday_Inn_Logo.svg/1280px-Holiday_Inn_Logo.svg.png" alt="Holiday Inn" style="height:36px"/>' +
+        '<div class="pr-sep"></div>' +
+        '<img src="https://logodix.com/logo/2085101.png" alt="GHL" style="height:28px"/>' +
+      '</div>' +
+      '<div class="pr-title-block"><div class="pr-title">Reporte de Room Service</div><div class="pr-sub">Holiday Inn Miraflores · Lima, Perú</div></div>' +
+    '</div>' +
+    '<div class="pr-meta">' +
+      '<div><strong>Fecha de emisión</strong>'+new Date().toLocaleDateString('es-PE',{day:'2-digit',month:'long',year:'numeric'})+'</div>' +
+      '<div><strong>Filtros aplicados</strong>'+filterDesc+'</div>' +
+      '<div><strong>Total de respuestas</strong>'+n+'</div>' +
+      '<div><strong>Generado por</strong>Sistema Dashboard · Room Service</div>' +
+    '</div>' +
+    '<div class="pr-section-title">Indicadores Clave</div>' +
+    '<div class="pr-kpis">' +
+      '<div class="pr-kpi"><div class="pr-kpi-val">'+n+'</div><div class="pr-kpi-lbl">Respuestas</div></div>' +
+      '<div class="pr-kpi"><div class="pr-kpi-val">'+overall.toFixed(2)+'</div><div class="pr-kpi-lbl">Promedio general</div></div>' +
+      '<div class="pr-kpi"><div class="pr-kpi-val">'+posRate+'%</div><div class="pr-kpi-lbl">Satisfacción positiva</div></div>' +
+      '<div class="pr-kpi"><div class="pr-kpi-val">'+avgP.toFixed(2)+'</div><div class="pr-kpi-lbl">Puntualidad</div></div>' +
+      '<div class="pr-kpi"><div class="pr-kpi-val">'+avgC.toFixed(2)+'</div><div class="pr-kpi-lbl">Calidad</div></div>' +
+    '</div>' +
+    '<div class="pr-section-title">Distribución por Categoría</div>' +
+    '<div class="pr-dist">' +
+      '<div class="pr-dist-block"><h4>Puntualidad en entrega</h4>'+distRows('puntualidad')+'</div>' +
+      '<div class="pr-dist-block"><h4>Presentación del pedido</h4>'+distRows('presentacion')+'</div>' +
+      '<div class="pr-dist-block"><h4>Calidad y sabor</h4>'+distRows('calidad')+'</div>' +
+      '<div class="pr-dist-block"><h4>Atención del equipo</h4>'+distRows('atencion')+'</div>' +
+    '</div>' +
+    '<div class="pr-section-title">Satisfacción General</div>' +
+    '<div class="pr-dist"><div class="pr-dist-block" style="grid-column:1/-1">'+distRows('satisfaccion')+'</div></div>' +
+    '<div class="pr-section-title">Detalle de Respuestas '+(d.length>50?'(primeras 50 de '+d.length+')':'')+'</div>' +
+    '<table class="pr-table"><thead><tr>' +
+      '<th>Fecha</th><th>Huésped</th><th>Hab.</th><th>Puntualidad</th><th>Presentación</th><th>Calidad</th><th>Atención</th><th>Satisfacción</th><th>★</th><th>Comentario</th>' +
+    '</tr></thead><tbody>'+tableRows+'</tbody></table>' +
+    '<div class="pr-footer">' +
+      '<span>Holiday Inn Miraflores · Av. Larco, Miraflores, Lima, Perú</span>' +
+      '<span>Confidencial · Uso interno</span>' +
+      '<span>'+new Date().toLocaleString('es-PE')+'</span>' +
+    '</div>';
 
   window.print();
 }
 
-/* ═══════════════════════════════════════════
-   INIT & AUTO-REFRESH
-═══════════════════════════════════════════ */
-// Enter key on login
-document.getElementById('loginPass').addEventListener('keydown', function(e){
-  if(e.key==='Enter') doLogin();
-});
-document.getElementById('loginUser').addEventListener('keydown', function(e){
-  if(e.key==='Enter') document.getElementById('loginPass').focus();
-});
+/* INIT */
+document.getElementById('loginPass').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
+document.getElementById('loginUser').addEventListener('keydown', function(e){ if(e.key==='Enter') document.getElementById('loginPass').focus(); });
 
-// Auto-refresh every 5 minutes when dashboard is open
 setInterval(function(){
-  if (document.getElementById('dashboard').style.display !== 'none') {
-    loadData();
-  }
+  if (document.getElementById('dashboard').style.display !== 'none') loadData();
 }, 5 * 60 * 1000);
 </script>
-
-<!-- Apps Script GET handler note (append to your existing doPost script):
-function doGet(e) {
-  if (e.parameter.action === 'getData') {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    const rows  = sheet.getDataRange().getValues();
-    const headers = rows[0];
-    const data = rows.slice(1).map(row => {
-      const obj = {};
-      headers.forEach((h,i) => obj[h.toLowerCase().replace(/[^a-z]/g,'')] = row[i]);
-      // map to expected keys
-      return {
-        timestamp:    row[0], nombre:       row[1], idioma:       row[2],
-        puntualidad:  row[3], presentacion: row[4], calidad:      row[5],
-        atencion:     row[6], satisfaccion: row[7], comentario:   row[8]
-      };
-    });
-    return ContentService
-      .createTextOutput(JSON.stringify({ data }))
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-}
--->
-
 </body>
 </html>
